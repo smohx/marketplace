@@ -1,5 +1,7 @@
 package com.mindfire.marketplace.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,10 +18,28 @@ public class ProductController {
 	ProductService productService;
 	
 	@ResponseBody
-	@RequestMapping(value ="getProductsDetails", method=RequestMethod.GET)
-	public ProductData getProductsForCategory(@RequestParam(value = "productCode", required = true) String code) {
+	@RequestMapping(value ="fetchProductDetails", method=RequestMethod.GET)
+	public ProductData fetchProductDetails(@RequestParam(value = "productCode", required = true) String code) {
 		
 		return productService.fetchProductDetail(code);
+
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value ="fetchProductsForCategory", method=RequestMethod.GET)
+	public List<ProductData> fetchProductsForCategory(@RequestParam(value = "categoryCode", required = true) String code) {
+		
+		return productService.fetchProductsForCategory(code);
+
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value ="fetchAllProducts", method=RequestMethod.GET)
+	public List<ProductData> fetchAllProducts() {
+		
+		return productService.fetchAllProducts();
 
 
 	}

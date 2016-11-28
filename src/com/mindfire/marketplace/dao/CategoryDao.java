@@ -14,8 +14,6 @@ public interface CategoryDao {
 	
 	List<CategoryModel> fetchSubCategories(String code);
 	
-	List<CategoryModel> fetchLowestCategories(String code);
-	
 	List<CategoryModel> fetchCategoriesForProduct(String code);
 	
 	void saveCategory(CategoryModel categoryModel);

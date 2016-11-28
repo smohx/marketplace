@@ -19,35 +19,46 @@ public class DefaultCategoryDao implements CategoryDao {
 	@Resource(name="sessionFactory")
 	private SessionFactory sessionFactory;
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public CategoryModel fetchCategoryByCode(String code) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("FROM  CategoryModel c where c.code = :categoryCode");
+		query.setParameter("categoryCode", code);
+		List<CategoryModel> list = query.list();
+		return (list.isEmpty() ? null : list.get(0));
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<CategoryModel> fetchAllCategories() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select c FROM  CategoryModel");
+		return query.list();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<CategoryModel> fetchCategoriesByLevel(String level) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select c FROM  CategoryModel c.level = :level");
+		query.setParameter("level", level);
+		return query.list();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<CategoryModel> fetchSubCategories(String code) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("select c FROM  CategoryModel c.superCategory = :categoryCode");
+		query.setParameter("categoryCode", code);
+		return query.list();
 	}
 
-	@Override
-	public List<CategoryModel> fetchLowestCategories(String code) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@SuppressWarnings("unchecked")
 	@Override
