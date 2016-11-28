@@ -36,9 +36,13 @@
 	
 	<import resource="hibernate-context.xml" />
 	
-	<bean id="productDao" class="com.mindfire.marketplace.dao.impl.DefaultProductDao" autowire="byName"/>
-	<bean id="categoryDao" class="com.mindfire.marketplace.dao.impl.DefaultCategoryDao" autowire="byName" />
-	<bean id="productService" class="com.mindfire.marketplace.service.impl.DefaultProductService" autowire="byName" />
+	<bean id="productDao" class="com.mindfire.marketplace.dao.impl.DefaultProductDao" />
+	<bean id="categoryDao" class="com.mindfire.marketplace.dao.impl.DefaultCategoryDao"  />
+	<bean id="productService" class="com.mindfire.marketplace.service.impl.DefaultProductService" />
+	<bean id="productPopulator" class="com.mindfire.marketplace.populator.ProductPopulator" />
+	<bean id="categoryPopulator" class="com.mindfire.marketplace.populator.CategoryPopulator" />
+	<bean id="productMediaPopulator" class="com.mindfire.marketplace.populator.ProductMediaPopulator" />
+	<bean id="categoryProductPopulator" class="com.mindfire.marketplace.populator.CategoryProductPopulator" />
 
 	
 </beans>

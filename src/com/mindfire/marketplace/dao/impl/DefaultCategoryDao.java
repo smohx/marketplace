@@ -54,7 +54,8 @@ public class DefaultCategoryDao implements CategoryDao {
 	public List<CategoryModel> fetchCategoriesForProduct(String code) {
 		
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("FROM  CategoryModel");
+		Query query = session.createQuery("select c FROM  CategoryModel c, ProductCategoryRelationModel p2c where c.code = p2c.targetCategory and p2c.sourceProduct = :productCode");
+		query.setParameter("productCode", code);
 		return query.list();
 	}
 

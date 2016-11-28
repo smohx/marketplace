@@ -9,14 +9,19 @@ import com.mindfire.marketplace.service.ProductService;
 
 public class DefaultProductService implements ProductService {
 
+	
 	@Autowired
 	ProductDao productDao;
+	
+	@Autowired
+	ProductPopulator productPopulator;
+	
 	
 	@Override
 	public ProductData fetchProductDetail(String code) {
 		
 		ProductData productData = new ProductData();
-		new ProductPopulator().populate(productDao.fetchProductByCode(code),productData);
+		productPopulator.populate(productDao.fetchProductByCode(code),productData);
 		return productData;
 	}
 
