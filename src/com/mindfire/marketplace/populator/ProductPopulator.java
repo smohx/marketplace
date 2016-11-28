@@ -16,33 +16,18 @@ public class ProductPopulator {
 
 	@Autowired
 	CategoryDao categoryDao;
-	
+
 	@Autowired
 	ProductDao productDao;
-	
+
 	@Autowired
 	CategoryPopulator categoryPopulator;
-	
+
 	@Autowired
 	ProductMediaPopulator productMediaPopulator;
 
 	public void populate(ProductModel source,ProductData target){
-		target.setCode(source.getCode());
-		target.setDescription(source.getDescription());
-		target.setName(source.getName());
-		target.setProductSKU(source.getProductSKU());
-		target.setPrice(source.getPrice());
-		target.setDefaultImageURL(source.getDefaultImageURL());
-		List<CategoryData> categoryList = new ArrayList<CategoryData>();
-		categoryPopulator.populate(categoryDao.fetchCategoriesForProduct(source.getCode()), categoryList);
-		target.setCategoryList(categoryList);
-		List<ProductMediaData> productMediaList = new ArrayList<ProductMediaData>();
-		productMediaPopulator.populate(productDao.fetchMediaForProduct(source.getCode()), productMediaList);
-		target.setProductMediaList(productMediaList);
-	}
-	public void populate(List<ProductModel> sourceList,List<ProductData> targetList){
-		for(ProductModel source:sourceList){
-			ProductData target = new ProductData();
+		if(null != source){
 			target.setCode(source.getCode());
 			target.setDescription(source.getDescription());
 			target.setName(source.getName());
@@ -55,7 +40,26 @@ public class ProductPopulator {
 			List<ProductMediaData> productMediaList = new ArrayList<ProductMediaData>();
 			productMediaPopulator.populate(productDao.fetchMediaForProduct(source.getCode()), productMediaList);
 			target.setProductMediaList(productMediaList);
-			targetList.add(target);
+		}
+	}
+	public void populate(List<ProductModel> sourceList,List<ProductData> targetList){
+		if(!sourceList.isEmpty()){
+			for(ProductModel source:sourceList){
+				ProductData target = new ProductData();
+				target.setCode(source.getCode());
+				target.setDescription(source.getDescription());
+				target.setName(source.getName());
+				target.setProductSKU(source.getProductSKU());
+				target.setPrice(source.getPrice());
+				target.setDefaultImageURL(source.getDefaultImageURL());
+				List<CategoryData> categoryList = new ArrayList<CategoryData>();
+				categoryPopulator.populate(categoryDao.fetchCategoriesForProduct(source.getCode()), categoryList);
+				target.setCategoryList(categoryList);
+				List<ProductMediaData> productMediaList = new ArrayList<ProductMediaData>();
+				productMediaPopulator.populate(productDao.fetchMediaForProduct(source.getCode()), productMediaList);
+				target.setProductMediaList(productMediaList);
+				targetList.add(target);
+			}
 		}
 	}
 }

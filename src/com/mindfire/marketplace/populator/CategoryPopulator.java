@@ -9,24 +9,28 @@ public class CategoryPopulator {
 
 	public void populate(CategoryModel source,CategoryData target){
 
-		target.setCode(source.getCode());
-		target.setDescription(source.getDescription());
-		target.setIconURL(source.getIconURL());
-		target.setLevel(source.getLevel());
-		target.setName(source.getName());
-		target.setSuperCategory(source.getSuperCategory());
-	}
-	public void populate(List<CategoryModel> sourceList,List<CategoryData> targetList){
-
-		for(CategoryModel source:sourceList){
-			CategoryData target = new CategoryData();
+		if(null != source){
 			target.setCode(source.getCode());
 			target.setDescription(source.getDescription());
 			target.setIconURL(source.getIconURL());
 			target.setLevel(source.getLevel());
 			target.setName(source.getName());
 			target.setSuperCategory(source.getSuperCategory());
-			targetList.add(target);
+		}
+	}
+	public void populate(List<CategoryModel> sourceList,List<CategoryData> targetList){
+
+		if(!sourceList.isEmpty()){
+			for(CategoryModel source:sourceList){
+				CategoryData target = new CategoryData();
+				target.setCode(source.getCode());
+				target.setDescription(source.getDescription());
+				target.setIconURL(source.getIconURL());
+				target.setLevel(source.getLevel());
+				target.setName(source.getName());
+				target.setSuperCategory(source.getSuperCategory());
+				targetList.add(target);
+			}
 		}
 	}
 }

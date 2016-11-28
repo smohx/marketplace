@@ -48,7 +48,7 @@ public class DefaultProductDao implements ProductDao {
 	@Override
 	public List<ProductModel> fetchProductsByCategory(String code) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("FROM  ProductModel p,ProductCategoryRelationModel p2c  where p.code = p2c.sourceProduct and p2c.targetCategory = :categoryCode");
+		Query query = session.createQuery("select p FROM  ProductModel p,ProductCategoryRelationModel p2c  where p.code = p2c.sourceProduct and p2c.targetCategory = :categoryCode");
 		query.setParameter("categoryCode", code);
 		return query.list();
 	}

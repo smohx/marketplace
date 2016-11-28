@@ -35,7 +35,7 @@ public class DefaultCategoryDao implements CategoryDao {
 	public List<CategoryModel> fetchAllCategories() {
 		
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("select c FROM  CategoryModel");
+		Query query = session.createQuery("select c FROM  CategoryModel c");
 		return query.list();
 	}
 
@@ -44,7 +44,7 @@ public class DefaultCategoryDao implements CategoryDao {
 	public List<CategoryModel> fetchCategoriesByLevel(String level) {
 		
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("select c FROM  CategoryModel c.level = :level");
+		Query query = session.createQuery("select c FROM  CategoryModel c where c.level = :level");
 		query.setParameter("level", level);
 		return query.list();
 	}
@@ -54,7 +54,7 @@ public class DefaultCategoryDao implements CategoryDao {
 	public List<CategoryModel> fetchSubCategories(String code) {
 		
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("select c FROM  CategoryModel c.superCategory = :categoryCode");
+		Query query = session.createQuery("select c FROM  CategoryModel c where c.superCategory = :categoryCode");
 		query.setParameter("categoryCode", code);
 		return query.list();
 	}

@@ -39,6 +39,7 @@
 	<bean id="productDao" class="com.mindfire.marketplace.dao.impl.DefaultProductDao" />
 	<bean id="categoryDao" class="com.mindfire.marketplace.dao.impl.DefaultCategoryDao"  />
 	<bean id="productService" class="com.mindfire.marketplace.service.impl.DefaultProductService" />
+	<bean id="categoryService" class="com.mindfire.marketplace.service.impl.DefaultCategoryService" />
 	<bean id="productPopulator" class="com.mindfire.marketplace.populator.ProductPopulator" />
 	<bean id="categoryPopulator" class="com.mindfire.marketplace.populator.CategoryPopulator" />
 	<bean id="productMediaPopulator" class="com.mindfire.marketplace.populator.ProductMediaPopulator" />
