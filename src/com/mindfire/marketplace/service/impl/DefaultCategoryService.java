@@ -44,7 +44,7 @@ public class DefaultCategoryService implements CategoryService {
 	public List<CategoryData> fetchSubCategories(String code) {
 		
 		List<CategoryData> categoryList = new ArrayList<CategoryData>();
-		categoryPopulator.populate(categoryDao.fetchCategoriesByLevel(code),categoryList);
+		categoryPopulator.populate(categoryDao.fetchSubCategories(code),categoryList);
 		return categoryList;
 	}
 
