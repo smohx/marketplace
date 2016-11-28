@@ -1,28 +1,11 @@
-package com.mindfire.marketplace.model;
+package com.mindfire.marketplace.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "productmedias")
-public class ProductMediaModel {
+public class ProductMediaData {
 	
-	@Id
-	@Column(name = "p_mediacode")
 	private String mediaCode;
-	
-	@Column(name = "p_productcode")
 	private String productCode;
-	
-	@Column(name = "p_mediatype")
-	private String mediaType;
-	
-	@Column(name = "p_mediaurl")
 	private String mediaURL;
-	
-	
+	private String mediaType;
 	public String getMediaCode() {
 		return mediaCode;
 	}

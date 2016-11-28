@@ -1,33 +1,15 @@
-package com.mindfire.marketplace.model;
+package com.mindfire.marketplace.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
 
-@Entity
-@Table(name = "Categories")
-public class CategoryModel {
-	
-	@Id
-	@Column(name = "p_code")
+public class CategoryProductData {
 	private String code;
-	
-	@Column(name = "p_name")
 	private String name;
-	
-	@Column(name = "p_description")
 	private String description;
-	
-	@Column(name = "p_level")
 	private String level;
-	
-	@Column(name = "p_supercategory")
 	private String superCategory;
-	
-	@Column(name = "p_iconurl")
 	private String iconURL;
-	
+	private List<ProductData> productList;
 	public String getCode() {
 		return code;
 	}
@@ -63,6 +45,12 @@ public class CategoryModel {
 	}
 	public void setIconURL(String iconURL) {
 		this.iconURL = iconURL;
+	}
+	public List<ProductData> getProductList() {
+		return productList;
+	}
+	public void setProductList(List<ProductData> productList) {
+		this.productList = productList;
 	}
 	
 	

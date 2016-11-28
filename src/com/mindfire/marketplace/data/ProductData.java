@@ -1,29 +1,15 @@
-package com.mindfire.marketplace.model;
+package com.mindfire.marketplace.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
 
-@Entity
-@Table(name = "Products")
-public class ProductModel {
-	@Id
-	@Column(name = "p_code")
+public class ProductData {
 	private String code;
-	
-	@Column(name = "p_name")
 	private String name;
-	
-	@Column(name = "p_description")
 	private String description;
-	
-	@Column(name = "p_defaultimageurl")
-	private String defaultImageURL;
-	
-	@Column(name = "p_price")
 	private double price;
-	
+	private String defaultImageURL;
+	private List<CategoryData> categoryList;
+	private List<ProductMediaData> productMediaList;
 	public String getCode() {
 		return code;
 	}
@@ -45,15 +31,28 @@ public class ProductModel {
 	public double getPrice() {
 		return price;
 	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
 	public String getDefaultImageURL() {
 		return defaultImageURL;
 	}
 	public void setDefaultImageURL(String defaultImageURL) {
 		this.defaultImageURL = defaultImageURL;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public List<CategoryData> getCategoryList() {
+		return categoryList;
 	}
+	public void setCategoryList(List<CategoryData> categoryList) {
+		this.categoryList = categoryList;
+	}
+	public List<ProductMediaData> getProductMediaList() {
+		return productMediaList;
+	}
+	public void setProductMediaList(List<ProductMediaData> productMediaList) {
+		this.productMediaList = productMediaList;
+	}
+	
 	
 
 }
