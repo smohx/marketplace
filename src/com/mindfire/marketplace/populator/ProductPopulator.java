@@ -30,6 +30,7 @@ public class ProductPopulator {
 		target.setCode(source.getCode());
 		target.setDescription(source.getDescription());
 		target.setName(source.getName());
+		target.setProductSKU(source.getProductSKU());
 		target.setPrice(source.getPrice());
 		target.setDefaultImageURL(source.getDefaultImageURL());
 		List<CategoryData> categoryList = new ArrayList<CategoryData>();
@@ -45,6 +46,7 @@ public class ProductPopulator {
 			target.setCode(source.getCode());
 			target.setDescription(source.getDescription());
 			target.setName(source.getName());
+			target.setProductSKU(source.getProductSKU());
 			target.setPrice(source.getPrice());
 			target.setDefaultImageURL(source.getDefaultImageURL());
 			List<CategoryData> categoryList = new ArrayList<CategoryData>();

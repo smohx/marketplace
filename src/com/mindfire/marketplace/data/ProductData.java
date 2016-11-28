@@ -5,6 +5,7 @@ import java.util.List;
 public class ProductData {
 	private String code;
 	private String name;
+	private String productSKU;
 	private String description;
 	private double price;
 	private String defaultImageURL;
@@ -21,6 +22,13 @@ public class ProductData {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getProductSKU() {
+		return productSKU;
+	}
+	public void setProductSKU(String productSKU) {
+		this.productSKU = productSKU;
 	}
 	public String getDescription() {
 		return description;

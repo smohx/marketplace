@@ -15,6 +15,9 @@ public class ProductModel {
 	@Column(name = "p_name")
 	private String name;
 	
+	@Column(name = "p_productSKU")
+	private String productSKU;
+	
 	@Column(name = "p_description")
 	private String description;
 	
@@ -35,6 +38,13 @@ public class ProductModel {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getProductSKU() {
+		return productSKU;
+	}
+	public void setProductSKU(String productSKU) {
+		this.productSKU = productSKU;
 	}
 	public String getDescription() {
 		return description;

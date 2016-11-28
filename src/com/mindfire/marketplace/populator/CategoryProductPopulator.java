@@ -32,6 +32,7 @@ public class CategoryProductPopulator {
 			productData.setCode(productModel.getCode());
 			productData.setDescription(productModel.getDescription());
 			productData.setName(productModel.getName());
+			productData.setProductSKU(productModel.getProductSKU());
 			productData.setDefaultImageURL(productModel.getDefaultImageURL());
 			productDataList.add(productData);
 		}
@@ -54,6 +55,7 @@ public class CategoryProductPopulator {
 				productData.setCode(productModel.getCode());
 				productData.setDescription(productModel.getDescription());
 				productData.setName(productModel.getName());
+				productData.setProductSKU(productModel.getProductSKU());
 				productData.setDefaultImageURL(productModel.getDefaultImageURL());
 				productDataList.add(productData);
 			}
