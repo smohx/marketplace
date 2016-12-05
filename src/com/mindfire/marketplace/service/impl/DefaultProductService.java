@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+
 
 import javax.imageio.ImageIO;
 
@@ -98,8 +98,8 @@ public class DefaultProductService implements ProductService {
 		try {
 			BufferedImage bufferedImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
 
-			File imageFile = new File("Webcontent/resources/images/"+value+".jpeg");
-			File targetImageFile = new File("target/marketplace-0.0.1-SNAPSHOT/resources/images/"+value+".jpeg");
+			File imageFile = new File("Webcontent/resources/images/PM"+value+".jpeg");
+			File targetImageFile = new File("target/marketplace-0.0.1-SNAPSHOT/resources/images/PM"+value+".jpeg");
 			ImageIO.write(bufferedImage, "jpeg", imageFile);
 			ImageIO.write(bufferedImage, "jpeg", targetImageFile);
 
@@ -108,7 +108,7 @@ public class DefaultProductService implements ProductService {
 			e.printStackTrace();
 		}
 
-		return value+".jpeg";
+		return "PM"+value+".jpeg";
 	}
 
 
@@ -126,7 +126,6 @@ public class DefaultProductService implements ProductService {
 			
 			for(String s:productData.getProductMediaList()){
 				ProductMediaModel productMediaModel = new ProductMediaModel();
-				System.out.println(s);
 				productMediaModel.setProductCode(code);
 				productMediaModel.setMediaType(s.split("\\.")[1]);
 				productMediaModel.setMediaCode(s.split("\\.")[0]);
@@ -167,7 +166,6 @@ public class DefaultProductService implements ProductService {
 			productDao.deleteAllMediaForProduct(code);
 			for(String s:productData.getProductMediaList()){
 				ProductMediaModel productMediaModel = new ProductMediaModel();
-				System.out.println(s);
 				productMediaModel.setProductCode(code);
 				productMediaModel.setMediaType(s.split("\\.")[1]);
 				productMediaModel.setMediaCode(s.split("\\.")[0]);

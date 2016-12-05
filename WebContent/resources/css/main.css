@@ -2544,7 +2544,7 @@ h2.title {
 .img-wrap {
     position: relative;
     display: inline-block;
-    border: 3px red solid;
+    border: 3px #3c8dbc solid;
     font-size: 0;
     color: #3c8dbc;
 }

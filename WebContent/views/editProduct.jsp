@@ -257,7 +257,7 @@ $(document).on("click",".img-wrap .removeImage",function(e){
 <body>
         <div class="row" id="edit-content">  
             <div class="box-header with-border">
-              <h3 class="box-title">Add New Product</h3>
+              <h3 class="box-title">Edit Product</h3>
             </div>
             <form role="form" class="col-xs-6">
               <div class="box-body">
@@ -286,7 +286,7 @@ $(document).on("click",".img-wrap .removeImage",function(e){
                   </br>
                   
                   <label class="btn btn-default">
-   				   Browse <input id="fileupload" type="file" style="display: none;">
+   				   Browse <input id="fileupload" type="file" multiple style="display: none;">
 					</label>
 				
                   <p class="help-block">Select Images From Local Directory</p>

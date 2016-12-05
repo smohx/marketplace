@@ -18,7 +18,7 @@
           </li>
          
           <li>
-            <a href="logout" data-toggle="control-sidebar"><i class="fa fa-power-off"></i></a>
+            <a href="logout" ><i class="fa fa-power-off"></i></a>
           </li>
         </ul>
       </div>

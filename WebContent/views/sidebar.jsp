@@ -24,7 +24,7 @@
         <li class="header">MAIN NAVIGATION</li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Manage Products</span> <i class="fa fa-angle-left pull-right"></i>
+            <i class="fa fa-cube"></i> <span>Manage Products</span> 
           </a>
           <ul class="treeview-menu">
             <li class="active"><a href="addProduct" ><i class="fa fa-circle-o"></i> Add New Product</a></li>
@@ -33,12 +33,11 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-files-o"></i>
+            <i class="fa fa-cube"></i>
             <span>Manage Categories</span>
-            <span class="label label-primary pull-right">4</span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="pages/layout/top-nav.html"><i class="fa fa-circle-o"></i> Add New Category</a></li>
+            <li><a href="addCategory"><i class="fa fa-circle-o"></i> Add New Category</a></li>
             <li><a href="categoryList"><i class="fa fa-circle-o"></i> View/Modify Categories</a></li>
             </ul>
         </li> 

@@ -196,7 +196,7 @@ $(document).on("click",".img-wrap .removeImage",function(e){
 <!-- general form elements -->
         <div class="row">  
             <div class="box-header with-border">
-              <h3 class="box-title">Add New Product</h3>
+              <h3 class="box-title">Add Product</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
@@ -223,7 +223,7 @@ $(document).on("click",".img-wrap .removeImage",function(e){
                   </br>
                   
                   <label class="btn btn-default">
-   				   Browse <input id="fileupload" type="file" style="display: none;">
+   				   Browse <input id="fileupload" type="file" multiple style="display: none;">
 					</label>
 				
                   <p class="help-block">Select Images From Local Directory(Only JPEG allowed)</p>
