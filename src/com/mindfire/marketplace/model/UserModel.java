@@ -11,7 +11,10 @@ public class UserModel {
 	
 	@Id
 	@Column(name = "p_userid")
-	private String UserID;
+	private String userID;
+	
+	@Column(name = "p_fullname")
+	private String fullName;
 
 	@Column(name = "p_emailid")
 	private String emailID;
@@ -26,13 +29,20 @@ public class UserModel {
 	private String imageURL;
 	
 	public String getUserID() {
-		return UserID;
+		return userID;
 	}
 	public void setUserID(String userID) {
-		UserID = userID;
+		this.userID = userID;
 	}
 	public String getEmailID() {
 		return emailID;
+	}
+	
+	public String getFullName() {
+		return fullName;
+	}
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 	public void setEmailID(String emailID) {
 		this.emailID = emailID;

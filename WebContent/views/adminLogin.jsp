@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html >
 <head>
   <meta charset="UTF-8">
@@ -13,13 +13,14 @@
 
 <body>
   <div class="login-page">
-  <div class="form">
-    <form class="login-form">
-      <input type="text" placeholder="username"/>
-      <input type="password" placeholder="password"/>
-      <button>login</button>
+   <div class="form">
+     <form class="login-form" name="loginForm" action="<c:url value='j_spring_security_check' />" method='POST'>
+      <input type="text" placeholder="E Mail" name="username">
+      <input type="password" placeholder="password" name="password"/>
+       <input class="button" type="submit" value="Submit"/>
+      <input type="hidden" name="${_csrf.parameterName}"
+				value="${_csrf.token}" />
     </form>
-  </div>
 </div>
 </body>
 </html>

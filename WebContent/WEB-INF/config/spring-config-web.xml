@@ -11,9 +11,13 @@
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd">
         
-    
+    <mvc:resources mapping="/bootstrap/**" location="/resources/bootstrap/" />
+	<mvc:resources mapping="/dist/**" location="/resources/dist/" />
+	<mvc:resources mapping="/plugins/**" location="/resources/plugins/" />
     <mvc:resources mapping="/js/**" location="/resources/js/" />   
     <mvc:resources mapping="/css/**" location="/resources/css/" />
+     <mvc:resources mapping="/images/**" location="/resources/images/" />
+     <mvc:resources mapping="/views/**" location="/views/" />
 	<context:component-scan base-package="com.mindfire.marketplace.*" />
 
 	<mvc:annotation-driven />
@@ -35,17 +39,24 @@
 		<property name="username" value="root" />
 		<property name="password" value="" />
 	</bean>
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    	<property name="dataSource" ref="dataSource"/>
+	</bean>
 	
 	<import resource="hibernate-context.xml" />
 	
 	<bean id="productDao" class="com.mindfire.marketplace.dao.impl.DefaultProductDao" />
 	<bean id="categoryDao" class="com.mindfire.marketplace.dao.impl.DefaultCategoryDao"  />
+	<bean id="userDao" class="com.mindfire.marketplace.dao.impl.DefaultUserDao"  />
+	<bean id="sequenceDao" class="com.mindfire.marketplace.dao.impl.DefaultSequenceDao"  />
 	<bean id="productService" class="com.mindfire.marketplace.service.impl.DefaultProductService" />
 	<bean id="categoryService" class="com.mindfire.marketplace.service.impl.DefaultCategoryService" />
+	<bean id="userService" class="com.mindfire.marketplace.service.impl.DefaultUserService" />
 	<bean id="productPopulator" class="com.mindfire.marketplace.populator.ProductPopulator" />
 	<bean id="categoryPopulator" class="com.mindfire.marketplace.populator.CategoryPopulator" />
 	<bean id="productMediaPopulator" class="com.mindfire.marketplace.populator.ProductMediaPopulator" />
 	<bean id="categoryProductPopulator" class="com.mindfire.marketplace.populator.CategoryProductPopulator" />
+	<bean id="multipartResolver"  class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 
 	
 </beans>

@@ -5,6 +5,8 @@ import javax.annotation.Resource;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import com.mindfire.marketplace.dao.ProductDao;
 import com.mindfire.marketplace.model.ProductMediaModel;
@@ -13,6 +15,9 @@ import com.mindfire.marketplace.model.ProductModel;
 @Transactional
 public class DefaultProductDao implements ProductDao {
 
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+	
 	@Resource(name="sessionFactory")
 	private SessionFactory sessionFactory;
 	
@@ -55,14 +60,35 @@ public class DefaultProductDao implements ProductDao {
 
 	@Override
 	public void saveProduct(ProductModel productModel) {
-		// TODO Auto-generated method stub
+
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(productModel);
 
 	}
 
 	@Override
 	public void saveProductMedia(ProductMediaModel productMediaModel) {
-		// TODO Auto-generated method stub
 
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(productMediaModel);
+
+	}
+
+	@Override
+	public void deleteAllMediaForProduct(String code) {
+		jdbcTemplate.update("DELETE FROM productmedias WHERE p_productcode = ?", new Object[] { code });
+		
+	}
+
+	@Override
+	public void deleteAllCategoryForProduct(String code) {
+		jdbcTemplate.update("DELETE FROM prod2catrel WHERE p_sourceproduct = ?", new Object[] { code });
+		
+	}
+
+	@Override
+	public String fetchPrimaryImageURL(String code) {
+		return jdbcTemplate.queryForObject("select min(p_mediaurl) FROM productmedias WHERE p_productcode = ?", new Object[] { code },String.class);
 	}
 
 }

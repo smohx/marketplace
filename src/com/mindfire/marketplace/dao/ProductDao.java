@@ -17,5 +17,11 @@ public interface ProductDao {
 	void saveProduct(ProductModel productModel);
 	
 	void saveProductMedia(ProductMediaModel productMediaModel);
+	
+	void deleteAllMediaForProduct(String code);
+	
+	void deleteAllCategoryForProduct(String code);
+	
+	String fetchPrimaryImageURL(String code);
 
 }

@@ -7,24 +7,24 @@
 	http://www.springframework.org/schema/security/spring-security-4.0.xsd">
 
     <http auto-config="true">
+    <csrf disabled="true"/>
     <intercept-url pattern="/adminLogin*" access="permitAll" />
 		<intercept-url pattern="/resources/**" access="permitAll" />
-        <intercept-url pattern="/" access="hasRole('ADMIN')"/>
-        <intercept-url pattern="/adminPanel" access="hasRole('ADMIN')"/>
-        <form-login login-page="/adminLogin" default-target-url="/welcome" authentication-failure-url="/adminLogin?error" username-parameter="username" password-parameter="password"/>
+        <intercept-url pattern="/" access="hasRole('ROLE_ADMIN')"/>
+         <intercept-url pattern="/addMedia**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/adminPanel**" access="hasRole('ROLE_ADMIN')"/>
+        <form-login login-page="/adminLogin" default-target-url="/adminPanel" login-processing-url="/j_spring_security_check" authentication-failure-url="/adminLogin?error" username-parameter="username" password-parameter="password"/>
         <logout logout-success-url="/adminLogin?logout" />
+       
     </http>
 
     <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="adminAuthenticator">
-            <password-encoder ref="encoder"></password-encoder>
+            <password-encoder hash="md5"></password-encoder>
         </authentication-provider>
     </authentication-manager>
 
     <beans:bean id="adminAuthenticator" class="com.mindfire.marketplace.security.AdminAuthenticator"></beans:bean>
 
-    <beans:bean id="encoder"
-          class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
-        <beans:constructor-arg name="strength" value="11"/>
-    </beans:bean>
+   
 </beans:beans>

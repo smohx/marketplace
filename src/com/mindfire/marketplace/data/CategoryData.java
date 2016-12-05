@@ -7,6 +7,7 @@ public class CategoryData {
 	private String description;
 	private String level;
 	private String superCategory;
+	private String superCategoryName;
 	private String iconURL;
 	public String getCode() {
 		return code;
@@ -37,6 +38,12 @@ public class CategoryData {
 	}
 	public void setSuperCategory(String superCategory) {
 		this.superCategory = superCategory;
+	}
+	public String getSuperCategoryName() {
+		return superCategoryName;
+	}
+	public void setSuperCategoryName(String superCategoryName) {
+		this.superCategoryName = superCategoryName;
 	}
 	public String getIconURL() {
 		return iconURL;

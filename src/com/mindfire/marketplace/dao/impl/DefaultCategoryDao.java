@@ -72,13 +72,17 @@ public class DefaultCategoryDao implements CategoryDao {
 
 	@Override
 	public void saveCategory(CategoryModel categoryModel) {
-		// TODO Auto-generated method stub
+
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(categoryModel);
 
 	}
 
 	@Override
 	public void saveCategoryProductRelation(ProductCategoryRelationModel productCategoryRelationModel) {
-		// TODO Auto-generated method stub
+		
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(productCategoryRelationModel);
 
 	}
 
